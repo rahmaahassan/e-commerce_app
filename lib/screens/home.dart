@@ -585,14 +585,12 @@ Widget _buildAppBar(BuildContext context) {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                child: Container(
-                  //width: 250,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 12,
-                        ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 11),
+                      child: Container(
+                        height: 31,
                         child: Material(
                           color: Colors.white,
                           elevation: 1,
@@ -618,7 +616,8 @@ Widget _buildAppBar(BuildContext context) {
                                         BorderRadius.all(Radius.circular(30)),
                                     color: Colors.transparent,
                                     child: IconButton(
-                                      icon: Icon(Icons.search_outlined),
+                                      padding: EdgeInsets.symmetric(vertical: 2),
+                                      icon: Icon(Icons.search_sharp),
                                       onPressed: () {},
                                       color: Colors.grey.shade400,
                                     ),
@@ -626,13 +625,13 @@ Widget _buildAppBar(BuildContext context) {
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30)),
                                   contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 25, vertical: 10)),
+                                      horizontal: 22, vertical: 5)),
                             ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               Column(
