@@ -7,14 +7,14 @@ import 'package:food_project/models/item_model.dart';
 import 'package:food_project/widgets/category_tile.dart';
 import 'package:food_project/widgets/famous_item.dart';
 
-class Home extends StatefulWidget {
+class HomeTab extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomeTabState createState() => _HomeTabState();
 }
 
-class _HomeState extends State<Home> {
-  Color appBarBackground;
+class _HomeTabState extends State<HomeTab> {
   double topPosition;
+
 
   List<CategoryModel> categories = List<CategoryModel>();
   List<FamousItemModel> famousItem = List<FamousItemModel>();
@@ -29,14 +29,11 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(context),
-      backgroundColor: Colors.white,
-      body: Container(
+    return Container(
         child: ListView(
           children: [
             Container(
-              height: 120,
+              height: 150,
               child: Swiper(
                 autoplay: true,
                 loop: true,
@@ -478,192 +475,6 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: Container(
-        height: 65,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(5), topLeft: Radius.circular(5)),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 1,
-              offset: Offset(0, 6), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: EdgeInsets.only(top: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                InkWell(
-                  //add Navigator
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );
-                  },
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.home,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      Text('الرئيسية'),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  //add Navigator
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/favorite.png',
-                        width: 28,
-                      ),
-                      Text('المفضلة'),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  //add Navigator
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/notification.png',
-                        width: 22,
-                      ),
-                      Text('الاشعارات'),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  //add Navigator
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/settings.png',
-                        width: 25,
-                      ),
-                      Text('الاعدادات'),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+      );
   }
-}
-
-Widget _buildAppBar(BuildContext context) {
-  return PreferredSize(
-    preferredSize: Size(double.infinity, 100),
-    child: Container(
-      decoration: BoxDecoration(color: Colors.transparent),
-      width: MediaQuery.of(context).size.width,
-      height: 100,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-        ),
-        child: Container(
-          margin: EdgeInsets.fromLTRB(0, 44, 0, 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 11),
-                      child: Container(
-                        height: 31,
-                        child: Material(
-                          color: Colors.white,
-                          elevation: 1,
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: TextField(
-                              textDirection: TextDirection.rtl,
-                              cursorColor: Colors.grey.shade400,
-                              style: TextStyle(
-                                color: Colors.grey.shade400,
-                                fontSize: 12,
-                              ),
-                              decoration: InputDecoration(
-                                  hintText: 'إبحث في مكان',
-                                  hintStyle: TextStyle(
-                                    color: Colors.grey.shade400,
-                                    fontSize: 12,
-                                  ),
-                                  prefixIcon: Material(
-                                    elevation: 0,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30)),
-                                    color: Colors.transparent,
-                                    child: IconButton(
-                                      padding: EdgeInsets.symmetric(vertical: 2),
-                                      icon: Icon(Icons.search_sharp),
-                                      onPressed: () {},
-                                      color: Colors.grey.shade400,
-                                    ),
-                                  ),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(30)),
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 22, vertical: 5)),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                textDirection: TextDirection.rtl,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'اسم التطبيق',
-                    style: TextStyle(
-                        fontSize: 11,
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.right,
-                  ),
-                  Text(
-                    'تصفح الاماكن بسرعة',
-                    style: TextStyle(
-                      fontSize: 7,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    textAlign: TextAlign.right,
-                  ),
-                ],
-              ),
-              Image.asset(
-                'assets/images/logo.png',
-                width: 37,
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-  );
 }

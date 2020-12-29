@@ -66,8 +66,12 @@ flutter:
     - assets/images/res.jpg
     - assets/images/res_coffee.jpg
     - assets/images/favorite.png
+    - assets/images/favorite_col.png
+    - assets/images/home_ic_col.png
     - assets/images/notification.png
+    - assets/images/notification_col.png
     - assets/images/settings.png
+    - assets/images/settings_col.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
